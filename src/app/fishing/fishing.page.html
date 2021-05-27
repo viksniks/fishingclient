@@ -1,0 +1,195 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+     
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-icon (click)="getData()" size="large" color="primary" name="refresh-outline"></ion-icon>
+    </ion-buttons>
+
+        
+           
+    <ion-title>Horgászverseny</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+  
+       <ion-label><b>Helyszin: {{location}}</b></ion-label>
+
+    </ion-item>
+  
+    <ion-card-content>
+      <ion-label><b>Megjegyzés: {{comments}}</b></ion-label>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid class="">
+  
+    <ion-row>
+      <ion-col class="ezhat">{{colname}}</ion-col>
+      <ion-col class="ezhat">Szektor</ion-col>
+      <ion-col class="ezhat">Súly (gr)</ion-col>
+      <ion-col class="ezhat">Darab</ion-col>
+      <ion-col class="ezhat">Idő</ion-col>
+    </ion-row>
+    <ion-row  *ngFor="let key of keys; let i = index">
+      <ion-col ><div class="ez">
+        <div *ngIf="obj[key].name">
+          {{obj[key].name}}
+        </div>
+      </div></ion-col>
+      <ion-col><div *ngIf="obj[key].sektor">
+      {{obj[key].sektor}}
+      </div></ion-col>
+      <ion-col >
+        <div *ngIf="obj[key].weight">
+      <div *ngFor="let s of obj[key].weight.split('\n')">
+         <div>{{s}}</div>
+      </div>
+      </div>
+      </ion-col>
+      <ion-col><div *ngIf="obj[key].piece">
+        <div *ngFor="let s of obj[key].piece.split('\n')">
+           <div>{{s}}</div>
+        </div>
+        </div></ion-col>
+      <ion-col>
+        <div *ngIf="obj[key].time">
+        <div *ngFor="let s of obj[key].time.split('\n')">
+          <div>{{s}}</div>
+       </div>
+       </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Bigfish -->
+    
+
+   
+  </ion-grid>
+  <ion-item>
+    <ion-icon style="color: #ece805;" slot="start" name="fish-outline"></ion-icon> 
+   <ion-label style="color: #ece805; font-size:15px;"><b>Big Fish (gr):</b></ion-label>
+    <ion-input [disabled]="true" [(ngModel)]="bigfish" style="font-size:15px;" class="form-control" type="text" ></ion-input>
+  </ion-item>
+  <br>
+  <ion-row>
+    <ion-col>
+      <div class="ion-text-start">
+        <h6>Halak száma Összesen: <span>{{totalpiece}}</span></h6>
+        
+      </div>
+      <div class="ion-text-start">
+        <h6>Teljes súly (gr): <span>{{totalweight}} </span></h6>
+        
+      </div>
+    </ion-col>
+  
+  </ion-row>
+  <br>
+ <!-- Calculation here -->
+ <ion-list>
+  <ion-list-header>
+    <h2>Jelenlegi állás:</h2>
+  </ion-list-header>
+  <ion-list-header>
+    <h6 style="color: #ffffff;">Idő: <span>{{clickedtime}}</span></h6>
+
+  </ion-list-header>
+
+
+  <ion-item *ngFor="let s of sorted;let i = index;">
+    
+      <h1 slot="start">{{i+1}}</h1>
+    
+    <ion-label>
+      <h2>{{s.name}}</h2>
+      <h3>Eddig összesen: {{s.weight}} Gramm</h3>
+      
+    </ion-label>
+  </ion-item>
+
+ 
+
+  
+</ion-list>
+<br>
+<br>
+<div *ngFor="let key of sektorKeys">
+  <ion-text><h4 style="text-align: center;color:#fff;">Sektor {{key}}</h4></ion-text>
+<ion-grid class="">
+  
+  <ion-row>
+    <ion-col class="ezhat">{{colname}}</ion-col>
+    <ion-col class="ezhat">Szektor</ion-col>
+    <ion-col class="ezhat">Súly (gr)</ion-col>
+    <ion-col class="ezhat">Darab</ion-col>
+    <ion-col class="ezhat">Idő</ion-col>
+  </ion-row>
+  <ion-row  *ngFor="let obj of sektorObj[key]; let i = index">
+    <ion-col ><div class="ez">
+      <div *ngIf="obj.name">
+        {{obj.name}}
+      </div>
+    </div></ion-col>
+    <ion-col><div *ngIf="obj.sektor">
+    {{obj.sektor}}
+    </div></ion-col>
+    <ion-col >
+      <div *ngIf="obj.weight">
+    <div *ngFor="let s of obj.weight.split('\n')">
+       <div>{{s}}</div>
+    </div>
+    </div>
+    </ion-col>
+    <ion-col><div *ngIf="obj.piece">
+      <div *ngFor="let s of obj.piece.split('\n')">
+         <div>{{s}}</div>
+      </div>
+      </div></ion-col>
+    <ion-col>
+      <div *ngIf="obj.time">
+      <div *ngFor="let s of obj.time.split('\n')">
+        <div>{{s}}</div>
+     </div>
+     </div>
+    </ion-col>
+  </ion-row>
+
+  <!-- Bigfish -->
+  
+
+ 
+</ion-grid>
+<ion-list>
+  <ion-list-header>
+    <h2>Jelenlegi állás:</h2>
+  </ion-list-header>
+  <ion-list-header>
+    <h6 style="color: #ffffff;">Idő: <span>{{clickedtime}}</span></h6>
+
+  </ion-list-header>
+
+
+  <ion-item *ngFor="let s of getSortedDataForSektor(key);let i = index;">
+    
+      <h1 slot="start">{{i+1}}</h1>
+    
+    <ion-label>
+      <h2>{{s.name}}</h2>
+      <h3>Eddig összesen: {{s.weight}} Gramm</h3>
+      
+    </ion-label>
+  </ion-item>
+
+ 
+
+  
+</ion-list>
+</div>
+</ion-content>

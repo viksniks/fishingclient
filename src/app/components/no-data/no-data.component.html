@@ -1,0 +1,9 @@
+<div class="no-data-content">
+  <img *ngIf="!noImage" [src]="src||'assets/imgs/no-data.svg'" margin-auto />
+  <div #inner class="no-data-inner width-100">
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf="!noText && !inner.childNodes.length">
+    <strong>{{'general.noData'|translate}}</strong>
+  </div>
+</div>

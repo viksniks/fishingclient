@@ -1,0 +1,146 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+@import "./shared_variables.scss";
+
+/** Ionic CSS Variables **/
+:root {
+  --color: #000;
+  --ion-padding: 8px;
+  --ion-margin: 8px;
+  // --ion-toolbar-background: rgb(120, 22, 22);
+  --ion-toolbar-background: rgb(161, 161, 161);
+  --ion-padding-goto-top: #{$goto-top-size + $goto-top-bottom + 5px};
+
+  --ion-color-step-50: #e8e8e8;
+  --ion-color-step-200: #cccccc;
+  --ion-color-step-950: #0d0d0d;
+
+
+
+  /** primary **/
+  // --ion-color-primary: #fe9c9c;
+  --ion-color-primary: rgb(255, 255, 0);
+  --ion-color-primary-rgb: 1, 140, 181;
+  --ion-color-primary-contrast:rgb(161, 161, 161);
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #017b9f;
+  --ion-color-primary-tint: #1a98bc; 
+
+  /** secondary **/
+  --ion-color-secondary: #de6a0e;
+  --ion-color-secondary-rgb: 222, 106, 14;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #c35d0c;
+  --ion-color-secondary-tint: #e17926;
+
+  /** success **/
+  --ion-color-success: #10dc60;
+  --ion-color-success-rgb: 16, 220, 96;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ec254;
+  --ion-color-success-tint: #28e070;
+
+  /** danger **/
+  --ion-color-danger: #e84a5f;
+  --ion-color-danger-rgb: 232, 74, 95;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cc4154;
+  --ion-color-danger-tint: #ea5c6f;
+
+  /** dark **/
+  --ion-color-dark: #000000;
+  --ion-color-dark-rgb: 42, 54, 59;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #253034;
+  --ion-color-dark-tint: #3f4a4f;
+
+  /** light **/
+  --ion-color-light: #ffffff;
+  --ion-color-light-rgb: 255, 255, 255;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #e0e0e0;
+  --ion-color-light-tint: #ffffff;
+
+  /** truewhite **/
+  --ion-color-truewhite: #ffffff;
+  --ion-color-truewhite-rgb: 255, 255, 255;
+  --ion-color-truewhite-contrast: #000000;
+  --ion-color-truewhite-contrast-rgb: 0, 0, 0;
+  --ion-color-truewhite-shade: #e0e0e0;
+  --ion-color-truewhite-tint: #ffffff;
+
+  /** trueblack **/
+  --ion-color-trueblack: #000000;
+  --ion-color-trueblack-rgb: 42, 54, 59;
+  --ion-color-trueblack-contrast: #ffffff;
+  --ion-color-trueblack-contrast-rgb: 255, 255, 255;
+  --ion-color-trueblack-shade: #253034;
+  --ion-color-trueblack-tint: #3f4a4f;
+
+  /** place **/
+  --ion-color-place: #aaaaaa;
+  --ion-color-place-rgb: 170, 170, 170;
+  --ion-color-place-contrast: #000000;
+  --ion-color-place-contrast-rgb: 0, 0, 0;
+  --ion-color-place-shade: #969696;
+  --ion-color-place-tint: #b3b3b3;
+}
+
+:focus {
+  outline: none;
+}
+
+.ion-color-place {
+  --ion-color-base: var(--ion-color-place);
+  --ion-color-base-rgb: var(--ion-color-place-rgb);
+  --ion-color-contrast: var(--ion-color-place-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-place-contrast-rgb);
+  --ion-color-shade: var(--ion-color-place-shade);
+  --ion-color-tint: var(--ion-color-place-tint);
+}
+
+.ion-color-truewhite {
+  --ion-color-base: var(--ion-color-truewhite);
+  --ion-color-base-rgb: var(--ion-color-truewhite-rgb);
+  --ion-color-contrast: var(--ion-color-truewhite-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-truewhite-contrast-rgb);
+  --ion-color-shade: var(--ion-color-truewhite-shade);
+  --ion-color-tint: var(--ion-color-truewhite-tint);
+}
+
+.ion-color-trueblack {
+  --ion-color-base: var(--ion-color-trueblack);
+  --ion-color-base-rgb: var(--ion-color-trueblack-rgb);
+  --ion-color-contrast: var(--ion-color-trueblack-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-trueblack-contrast-rgb);
+  --ion-color-shade: var(--ion-color-trueblack-shade);
+  --ion-color-tint: var(--ion-color-trueblack-tint);
+}
+
+@import "./variables_detail_dark.scss";
+
+
+// Popover
+ion-popover {
+  .popover-wrapper {
+   .popover-content {
+     width: 300px;
+     max-width: 300px;
+   }
+  }
+}
+
+.pop-head{
+  background-color: rgb(32, 101, 170);
+}
+
+
+ion-toolbar.toolbar-container{
+  height: 80px;
+  background-color: #969696;
+}

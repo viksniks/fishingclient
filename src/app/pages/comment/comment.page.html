@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="['/detail', post_id]"></ion-back-button>
+      <ion-button [routerLink]="['/detail', post_id]" routerDirection="back">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+			<ion-button *ngIf="status!='closed'" (click)="viewMode=!viewMode" [color]="viewMode?'success':null">
+				<ion-icon slot="icon-only" name="eye"></ion-icon>
+			</ion-button>
+    </ion-buttons>
+    <!-- <ion-title>
+      <span *ngIf="!view?.id">{{'comments.title'|translate}}</span>
+      <span *ngIf="view?.id">{{'comments.reply'|translate}}</span>
+		</ion-title> -->
+		<ion-buttons *ngIf="status!='closed'" slot="end">
+			<ion-button (click)="facebook()" class="facebook">
+				<ion-icon slot="icon-only" name="logo-facebook" *ngIf="!loading"></ion-icon>
+				<ion-spinner name="lines" *ngIf="loading"></ion-spinner>
+			</ion-button>
+			<ion-button (click)="logout()">
+				<ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+	<ion-toolbar [color]="status=='closed' ? 'place' : null">
+		<!-- From comment -->
+		<div light *ngIf="status=='closed'" class="ion-padding-vertical ion-text-center">{{'comments.close'|translate}}</div>
+		<ion-list *ngIf="status!='closed'" class="ion-padding-horizontal ion-padding-bottom ion-no-margin">
+			<form [formGroup]="formComment" [hidden]="viewMode">
+				<ion-item class="ion-no-padding" *ngIf="needInfo">
+					<ion-input formControlName="author_name" [placeholder]="'comments.name'|translate"></ion-input>
+				</ion-item>
+				<ion-item class="ion-no-padding" *ngIf="needInfo">
+					<ion-input type="email" formControlName="author_email" [placeholder]="'comments.email'|translate"></ion-input>
+				</ion-item>
+				<ion-item class="ion-no-padding">
+					<ion-textarea formControlName="content" [placeholder]="'comments.content'|translate"></ion-textarea>
+				</ion-item>
+			</form>
+			<ion-button expand="block" size="small" [disabled]="!formComment.valid && !viewMode" (click)="comment()" class="ion-no-margin ion-margin-top">
+				<span>{{'comments.send'|translate}}</span>
+			</ion-button>
+		</ion-list>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+	<!-- Refresh -->
+  <app-refresher slot="fixed" [disabled]="!loaded" (ionRefresh)="doRefresh($event)"></app-refresher>
+  <!-- Viewing -->
+  <app-item-comment *ngIf="view?.id" [comment]="view" hideView="true" box-shadow></app-item-comment>
+  <!-- no data -->
+  <app-no-data *ngIf="loaded && (!comments || comments.length < 1)" src="assets/imgs/no-data-comments.svg" [inner]="view?.id">
+    <div place class="ion-margin-bottom">{{'comments.noData'|translate}}</div>
+  </app-no-data>
+  <!-- Loading -->
+  <app-loading *ngIf="!loaded || commenting"></app-loading>
+  <!-- List comment -->
+	<ion-list *ngIf="comments && comments.length > 0">
+		<app-item-comment *ngFor="let comment of comments" [comment]="comment" [status]="status" (onView)="viewComment(comment)"></app-item-comment>
+	</ion-list>
+	<!-- Load more -->
+	<app-infinite-scroll threshold="45%" (ionInfinite)="load($event)" *ngIf="!over && comments?.length > 0"></app-infinite-scroll>
+  <!-- Go to top -->
+  <app-goto-top slot="fixed" [content]="content"></app-goto-top>
+</ion-content>

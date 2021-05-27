@@ -1,0 +1,96 @@
+:host {
+  .header-ios {
+    ion-chip {
+      background: var(--ion-color-shade, #fff);
+      color: var(--ion-color-contrast, 255, 255, 255);
+      ion-label {
+        max-width: 100px;
+      }
+    }
+  }
+}
+.app-name{
+  color: rgb(255, 255, 0);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+// Location display
+.location-display{
+  width: 100%;
+  // height:30px;
+  background-color: white;
+  padding-left: 8px;
+  top:12px;
+  position: relative;
+  font-weight:bold;
+  text-align: center;
+  // color: rgb(255, 171, 171);
+  color: #fff;
+  font-size: 12px;
+}
+
+.text-lov {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 10px;
+  height:30px;
+  font-size: 13px;
+  color: #fff;
+  text-align: center;
+  
+ 
+}
+
+
+// float icon
+.float-location{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:90px;
+	right:10px;
+	background-color: rgb(32, 101, 170);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  // box-shadow: 2px 2px 3px #999;
+  z-index: 1200;
+}
+
+.loc-float{
+	margin-top:22px;
+}
+
+
+
+.icon-home{
+  border-radius:10px;
+  position: relative;
+  left:8px
+}
+
+.green-icon{
+  color:  rgb(32, 101, 170);
+  font-weight: bold;
+}
+
+.menu-ic{
+  color: rgb(255, 255, 0);
+}
+.menu-label{
+  color:  rgb(32, 101, 170);
+  font-size: 11px;
+}
+
+.top-sun{
+  position: relative;
+  left:16px
+}
+.ficon{
+  background-color: #f59c02;
+}
+
+.home-header{
+  background-color: gray;
+}

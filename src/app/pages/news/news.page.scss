@@ -1,0 +1,26 @@
+app-news {
+  .slides-sticky {
+    --bullet-background: var(--ion-color-light);
+    ion-slides {
+      padding-bottom: 22px;
+      .swiper-slide {
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .swiper-pagination {
+        bottom: 2px;
+        white-space: nowrap;
+        .swiper-pagination-bullet {
+          opacity: 1;
+          width: 10px;
+          border-radius: 4px;
+          margin: 0 2px;
+          transition: width 0.2s;
+          &-active {
+            width: 15px;
+          }
+        }
+      }
+    }
+  }
+}

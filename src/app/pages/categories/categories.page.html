@@ -1,0 +1,60 @@
+<ion-header class="home-header">
+  <ion-toolbar> 
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  
+    
+    <ion-buttons slot="end">
+     
+      <ion-button clear routerLink="/search">
+        <ion-icon slot="icon-only" name="search" class="menu-search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+ 
+
+</ion-header>
+
+
+<ion-content #content>
+  <!-- Refresh -->
+  <app-refresher slot="fixed" [disabled]="!loaded || isReorder" (ionRefresh)="doRefresh($event)"></app-refresher>
+  <!-- no data -->
+  <app-no-data *ngIf="loaded && categories.length <1"></app-no-data>
+  <!-- Loading -->
+  <app-loading *ngIf="!loaded"></app-loading>
+  <!-- List categories -->
+  <ion-reorder-group class="list-categories" [disabled]="!isReorder" (ionItemReorder)="itemReorder($event)">
+    <ion-card *ngFor="let category of categories" [routerLink]="!isReorder ? ['/detail-category', category.id] : null">
+      <img [src]="category.image||'assets/imgs/no-image.png'" width-100 class="ion-float-start">
+      <ion-card-content absolute top start size-full blur-inner padding-x2>
+        <ion-reorder slot="start" absolute bottom start index-100>
+          <ion-icon name="repeat" size="large" padding-x2 rotate-90></ion-icon>
+        </ion-reorder>
+        <b [innerHTML]="category.name" class="category-name trueblack"></b>
+      </ion-card-content>
+    </ion-card>
+  </ion-reorder-group>
+  <ion-fab #fab *ngIf="categories && categories.length > 1" vertical="top" horizontal="end" slot="fixed" class="fab-sort-categories">
+    <ion-fab-button color="light" size="small" (click)="changeReorder()">
+      <ion-icon name="repeat" rotate-90></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button color="primary" (click)="saveReorder()">
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" (click)="clearReorder($event, fab)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+    <!-- Go to top -->
+    <app-goto-top slot="fixed" [content]="content"></app-goto-top>
+
+
+    
+</ion-content>
+
+

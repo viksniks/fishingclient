@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-button *ngIf="loading">
+        <ion-spinner name="{{'general._infiniteSpinner'|translate}}"></ion-spinner>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <span>{{'notification.title'|translate}}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="clear()">
+        <ion-icon slot="icon-only" src="assets/svg/icon-clean.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- no data -->
+  <app-no-data *ngIf="loaded && (!notifications || notifications.length == 0)" src="assets/imgs/no-data-notifications.svg">
+    <div place>{{'notification.noData'|translate}}</div>
+  </app-no-data>
+  <!-- Loading -->
+  <app-loading *ngIf="!loaded"></app-loading>
+  <!-- List notifications -->
+  <ion-list *ngIf="loaded && notifications && notifications.length > 0" class="list-notifications">
+    <ion-card *ngFor="let notification of notifications" lines="none" class="ion-text-wrap ion-padding">
+      <ion-card-header class="ion-padding">
+        <ion-card-subtitle class="d-flex ion-align-items-center ion-justify-content-between">
+          <span>{{notification.time|date:('notification._date_format'|translate)}}</span>
+          <ion-icon name="trash" (click)="delete(notification)" color="danger" size="small"></ion-icon>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <!-- big picture -->
+      <div *ngIf="notification.bigPicture" class="ion-padding-horizontal">
+        <img [src]="notification.bigPicture" border-radius />
+      </div>
+      <ion-card-content class="ion-padding">
+        <!-- Title -->
+        <h2 primary [innerHTML]="notification.title"></h2>
+        <!-- Content -->
+        <div [innerHTML]="notification.body" class="ion-margin-top"></div>
+        <ion-row class="ion-margin-top">
+          <!-- Deeplinks -->
+          <ion-button *ngIf="notification.additionalData && notification.additionalData.link" color="success" size="small"
+            class="ion-no-margin" (click)="runDeeplinks(notification)">
+            <span>{{'notification.deeplinks'|translate}}</span>
+          </ion-button>
+          <!-- Launch -->
+          <ion-button *ngIf="notification.launchURL" size="small" (click)="launch(notification)" class="ion-no-margin">
+            <span>{{'notification.launch'|translate}}</span>
+          </ion-button>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

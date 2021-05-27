@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'profile.title'|translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="login && login.id" padding-x2>
+    <div padding-x2 >
+      <img border-round margin-auto [src]="login.avatar||'assets/imgs/person.png'" width="96px" />
+    </div>
+    <ion-list padding-x2 margin-auto class="ion-no-margin ion-padding-top content">
+      <form *ngIf="formUpdate" [formGroup]="formUpdate" class="ion-padding-bottom">
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">{{'profile.name'|translate}}</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">{{'profile.email'|translate}}</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+      </form>
+      <ion-button expand="block" [disabled]="!formUpdate.valid" (click)="update()" class="ion-no-margin">
+        <span>{{'profile.update'|translate}}</span>
+        <ion-spinner *ngIf="updating" spinner-load absolute end name="lines" color="light" class="ion-margin-end"></ion-spinner>
+      </ion-button>
+      <!-- Change password button -->
+      <ion-button margin-auto (click)="password()" fill="clear">
+        <span>{{'profile.password.title'|translate}}</span>
+      </ion-button>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar *ngIf="login && login.id" class="ion-no-padding">
+    <ion-button expand="full" (click)="keep()" fill="clear" class="ion-no-margin">
+      <span>{{'profile.keep.title'|translate}}</span>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,13 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "CorkCounty",
+  "short_name": "CorkCounty",
+  "version": "ie.media.corkcounty",
+  "description": "Cork County",
+  "author": "Media Star Ireland.",
+  "icons": [],
+  "orientation": "portrait",
+  "start_url": "index.html",
+  "theme_color": "#fff"
+}

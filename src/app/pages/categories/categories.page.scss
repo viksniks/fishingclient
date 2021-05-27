@@ -1,0 +1,28 @@
+app-categories {
+  .list-categories {
+    ion-card {
+      min-height: 110px;
+      .category-name {
+        padding-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 40px;
+        line-height: 20px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        text-shadow: 1px 1px 5px var(--ion-color-truewhite);
+      }
+    }
+  }
+  .fab-sort-categories {
+    right: calc(var(--ion-safe-area-right, 0px));
+  }
+}
+
+[dir="rtl"] app-categories {
+  .fab-sort-categories {
+    right: unset;
+    left: calc(var(--ion-safe-area-right, 0px));
+  }
+}

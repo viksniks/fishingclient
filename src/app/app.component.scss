@@ -1,0 +1,135 @@
+@import "../theme/shared_variables.scss";
+
+ion-app.isOffline {
+  height: auto;
+  bottom: $offline-mode-height;
+  transition: 0.5s;
+}
+.button-offline {
+  height: $offline-mode-height;
+  font-size: $offline-mode-font-size;
+  bottom: var(--ion-safe-area-bottom);
+}
+.slides-intro {
+  .swiper-pagination {
+    text-align: start;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    .swiper-pagination-bullet {
+      opacity: 0.5;
+    }
+  }
+}
+.route-path {
+  &-detail {
+    ion-alert.alert-terms {
+      visibility: hidden;
+    }
+  }
+}
+.connecting-text{
+  font-weight: bold;
+  color: white
+}
+
+.connecting-text-dark{
+  font-weight: bold;
+  color: white;
+}
+
+// voice search icon
+.mix-size{
+ font-size: 50px;
+ color: white
+
+}
+
+$primary: #71bbd4;
+$size: 70px;
+
+// with vibration
+.pulse-ring {
+  content: '';
+  width: $size;
+  height: $size;
+  border: 5px solid $primary;
+  border-radius: 50%;
+  position: relative;
+  top: -5px;
+  left: -5px;
+  animation: pulsate infinite 2s;
+  background-color: rgb(32, 101, 170);
+}
+
+// without vibration
+.pulse-ring1 {
+  content: '';
+  width: $size;
+  height: $size;
+  border: 5px solid $primary;
+  border-radius: 50%;
+  position: relative;
+  top: -5px;
+  left: -5px;
+ 
+  background-color: rgb(32, 101, 170);
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    -webkit-transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.2, 1.2);
+    opacity: 0.2;
+  }
+}
+
+// Listening dots
+.listening:after {
+  content: ' .';
+  animation: dots 1s steps(5, end) infinite;}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  40% {
+    color: rgb(0, 0, 0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  60% {
+    text-shadow:
+      .25em 0 0 rgb(0, 0, 0),
+      .5em 0 0 rgba(0,0,0,0);}
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 rgb(0, 0, 0),
+      .5em 0 0 rgb(0, 0, 0);}}
+
+      // mach loadin
+      .match-load{
+        color: green;
+        font-size: 16px;;
+      }
+    
+      ion-item.city-list{
+        width: 100%;
+    }
+
+
+    // ionic popover
+    .sc-ion-popover-ios-h {
+   
+      --backdrop-opacity: var(--ion-backdrop-opacity, 0.6) !important;
+  }
+
+ .pop-head{
+    background-color: rgb(32, 101, 170);
+  }
+
+  

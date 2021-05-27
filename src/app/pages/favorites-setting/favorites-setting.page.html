@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar no-padding-important class="ion-no-padding">
+    <ion-item lines="none">
+      <ion-label>
+        <span tappable primary (click)="checkAll()">{{'favorites.chose'|translate}}</span>
+      </ion-label>
+      <ion-button size="small" slot="end" fill="outline" [color]="saved?'primary':'dark'" (click)="save()">
+        <span *ngIf="!saved">{{'favorites.save'|translate}}</span>
+        <span *ngIf="saved">{{'favorites.saved'|translate}}</span>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Refresh -->
+  <app-refresher slot="fixed" [disabled]="!loaded" (ionRefresh)="getCategories($event)"></app-refresher>
+  <!-- no data -->
+  <app-no-data *ngIf="loaded && (!categories || categories.length < 1)"></app-no-data>
+  <!-- loading -->
+  <app-loading *ngIf="!loaded"></app-loading>
+  <!-- list categories -->
+  <ion-list *ngIf="categories && categories.length > 0">
+    <ion-item *ngFor="let category of categories" lines="none">
+      <ion-label [innerHTML]="category.name"></ion-label>
+      <ion-checkbox [(ngModel)]="category.favorite"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>

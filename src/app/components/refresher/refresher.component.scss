@@ -1,0 +1,11 @@
+:host {
+  position: unset;
+  &[color="truewhite"] {
+    --color: var(--ion-color-truewhite);
+    --ion-text-color: var(--ion-color-truewhite);
+  }
+}
+
+.ion-text-center{
+  color: white;
+}

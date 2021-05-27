@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar class="toolbar-searchbar-common">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar [(ngModel)]="_keyword" (search)="doSearch()" (ionClear)="_keyword=''; doSearch()"
+      [placeholder]="'search.search'|translate" class="ion-text-start">
+      </ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="show=!show" [color]="show?'success':'primary'" [disabled]="!search || search.length < 1">
+				<ion-icon slot="icon-only" name="time-outline"></ion-icon>
+			</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+  <!-- history -->
+  <div slot="fixed" absolute top start size-full light-bg overflow *ngIf="show && search && search.length > 0">
+    <h5 place class="ion-text-center">{{'search.history'|translate}}</h5>
+    <ion-button *ngFor="let item of search" fill="clear" expand="block" (click)="onSearch(item)" text-ellipsis>
+      <span>{{item}}</span>
+    </ion-button>
+  </div>
+  <ion-button *ngIf="show && search && search.length > 0"slot="fixed" absolute bottom end (click)="clear()" fill="clear" color="danger">
+    <ion-icon slot="icon-only" src="assets/svg/icon-clean.svg"></ion-icon>
+  </ion-button>
+  <!-- no data -->
+  <app-no-data *ngIf="searched && !searching && (!posts || posts.length < 1)"></app-no-data>
+  <!-- searching -->
+  <app-loading *ngIf="searching"></app-loading>
+  <!-- List posts -->
+  <app-list-posts *ngIf="posts" [posts]="posts"></app-list-posts>
+  <app-infinite-scroll threshold="45%" (ionInfinite)="load($event)" *ngIf="!over && posts?.length > 0"></app-infinite-scroll>
+  <!-- Go to top -->
+  <app-goto-top slot="fixed" [content]="content"></app-goto-top>
+</ion-content>

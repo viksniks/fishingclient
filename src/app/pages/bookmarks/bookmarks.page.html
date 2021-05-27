@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar class="toolbar-searchbar-common">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar [(ngModel)]="keyword" (search)="onSearch()" (ionClear)="keyword=''; onSearch()"
+      [placeholder]="'bookmark.search'|translate" class="ion-text-start">
+      </ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="clear()">
+				<ion-icon slot="icon-only" src="assets/svg/icon-clean.svg"></ion-icon>
+			</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="list-bookmark">
+		<!-- Loading -->
+    <app-loading *ngIf="!loaded"></app-loading>
+    <!-- no data -->
+    <app-no-data *ngIf="loaded && posts && posts.length < 1" src="assets/imgs/no-data-bookmarks.svg">
+      <div place class="ion-margin-bottom">{{'bookmark.noData.message1'|translate}}</div>
+      <div place class="ion-margin-bottom">{{'bookmark.noData.message2'|translate}}</div>
+      <ion-button size="small" class="ion-margin-top" routerLink="/home" routerDirection="root">{{'bookmark.noData.button'|translate}}</ion-button>
+    </app-no-data>
+		<!-- List posts -->
+		<ion-list *ngIf="loaded && posts && posts.length > 0" box-shadow class="ion-no-margin">
+			<ion-item-sliding *ngFor="let post of posts">
+				<ion-item lines="none" detail="false" [routerLink]="['/detail', post.id]">
+					<!-- thumbnail image -->
+					<ion-thumbnail slot="start" border-radius>
+						<img [src]="post.image||'assets/imgs/no-image-square.png'">
+          </ion-thumbnail>
+          <ion-label>
+            <!-- title post -->
+            <div [innerHTML]="post.title" class="ion-margin-bottom ion-text-wrap"></div>
+            <!-- date modified post -->
+            <div place overflow><small class="ion-float-start">{{post.date|time}}</small></div>
+          </ion-label>
+				</ion-item>
+				<ion-item-options side="end">
+          <ion-item-option (click)="delete(post)" color="danger">{{'bookmark.delete'|translate}}</ion-item-option>
+				</ion-item-options>
+			</ion-item-sliding>
+		</ion-list>
+	</div>
+</ion-content>

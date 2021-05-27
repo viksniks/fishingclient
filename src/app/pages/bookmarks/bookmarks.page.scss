@@ -1,0 +1,23 @@
+@import "../../../theme//shared_variables.scss";
+
+app-bookmarks {
+  .list-bookmark {
+    .item {
+      --padding-start: 0;
+      ion-thumbnail {
+        --size: 80px;
+        min-width: var(--size);
+        min-height: var(--size);
+        margin: 10px !important;
+        overflow: hidden;
+      }
+      .item-inner {
+        --margin-right: 2px;
+        --margin-left: 2px;
+      }
+    }
+    ion-item-options {
+      border-bottom: none;
+    }
+  }
+}

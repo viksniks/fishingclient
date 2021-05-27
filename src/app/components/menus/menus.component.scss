@@ -1,0 +1,170 @@
+:host {
+  .root-menu {
+    --background: var(--ion-color-primary);
+    --background: -moz-linear-gradient(top, var(--ion-color-primary) 0%, #1b3288 100%);
+    --background: -webkit-linear-gradient(top, var(--ion-color-primary) 0%, #1b3288 100%);
+    --background: linear-gradient(to bottom, var(--ion-color-primary) 0%, #1b3288 100%);
+    .detail-dark & {
+      --background: var(--ion-color-trueblack);
+      --background: -moz-linear-gradient(top, var(--ion-color-trueblack-tint) 0%, var(--ion-color-trueblack) 100%);
+      --background: -webkit-linear-gradient(top, var(--ion-color-trueblack-tint) 0%, var(--ion-color-trueblack) 100%);
+      --background: linear-gradient(to bottom, var(--ion-color-trueblack-tint) 0%, var(--ion-color-trueblack) 100%);
+    }
+    ion-header {
+      img {
+        .detail-dark & {
+          filter: brightness(0.5);
+        }
+      }
+    }
+    app-refresher {
+      position: relative;
+      display: block;
+      margin-top: var(--ion-margin);
+    }
+    ion-list {
+      background: transparent;
+      ion-item {
+        --min-height: 50px;
+        --background: transparent;
+        --color: var(--ion-color-truewhite);
+      }
+    }
+  }
+}
+.telepules{
+  // color: red;
+  font-weight: bold;
+}
+
+.telepules-voice{
+  font-weight: bold;
+}
+
+.hr-line{
+  color: white;
+  height: 1px;
+}
+
+.m-ma-vedve{
+  color: white;
+  padding: 16px;
+}
+
+
+.text-cont {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  padding: 20px;
+  color:rgb(255, 255, 0);
+}
+
+.icon-vip{
+  color:rgb(255, 255, 0);
+}
+
+
+.container-test {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+} 
+
+.text-test{
+  left: 0;
+  position:absolute;
+  text-align:center;
+  top: 70px;
+  width: 100%;
+  font-size: 20x;
+  padding: 5px;
+}
+
+// kereso box
+.text-kereso{
+  left: 10px;
+  position:absolute;
+  text-align:left;
+  top: 130px;
+  width: 93%;
+  font-size: 20x;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 0px;
+  
+  
+}
+
+.no-city-found{
+  color: red;
+  padding: 10px;
+  padding-bottom: 8px;
+  font-weight: bold;
+  text-align:center;
+}
+
+// results list
+.results-list{
+    max-height: 170px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 120;
+    
+}
+
+.item-list-res{
+  font-size: 15px;
+}
+
+.Spar{
+  color: white;
+  padding: 8px;
+  font-size: 12px;
+}
+.Spar-img{
+  
+  padding: 8px;
+}
+
+.myCard{
+  position:relative;
+
+}
+
+.myOverlay{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    z-index: 99;
+    bottom: 0px;
+    opacity: 0.5;
+    background: #000;
+    color: #fff;
+
+}
+
+// search box css on menu
+ion-searchbar{
+  --placeholder-color: white;
+  --placeholder-opacity: 0.7;
+  --icon-color: white;
+  color: white;
+}
+
+
+// list voise result css
+#ctc{
+  left: 10px;
+  position: relative;;
+  text-align:center;
+  color: white;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+
+.voice-back{
+  background-color:  rgb(2, 24, 132);
+}

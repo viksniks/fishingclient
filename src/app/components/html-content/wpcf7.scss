@@ -1,0 +1,176 @@
+@import "../../../theme/shared_variables.scss";
+
+.wpcf7-form {
+  .wpcf7-text,
+  .wpcf7-textarea,
+  .wpcf7-date,
+  .wpcf7-select,
+  .wpcf7-quiz,
+  .wpcf7-file {
+    border-radius: 15px;
+    // border: 1px solid $list-ios-border-color;
+    // padding: 5px;
+    // margin: 4px 0;
+    // width: 100%;
+    border: 0;
+  
+  border-bottom: 1px solid #4141415e;
+  margin: 4px 0;
+  // color: rgb(57, 57, 57);
+  // background-color: white;
+  width: 100%;
+  }
+  .wpcf7-file {
+  display: inline-block;
+  width: 100%;
+  padding: 70px 0 0 0;
+  height: 40px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
+  border-radius: 20px;
+  background-size: 40px 40px;
+  background-color: wheat;
+ 
+  
+    
+  }
+  .wpcf7-select{
+    background: wheat;
+	font-family: 'stenciletta-solid', sans-serif;
+	padding: 10px 15px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+
+	padding-left: 25px;
+  padding-right: 25px;  
+  color: black;
+  }
+
+
+  .file-764{
+    // background-color: #f6f6f6;
+    // border: dotted 3px #848484; 
+    // height: 10vh;
+    
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // margin: 20px 0;
+    // color: gray;
+  }
+  
+  .wpcf7-checkbox,
+  .wpcf7-radio {
+    .wpcf7-list-item {
+      display: block;
+      label {
+        display: block;
+      }
+      input {
+        position: absolute;
+        opacity: 0;
+        width: 20px;
+        height: 26px;
+        &:checked ~ .wpcf7-list-item-label {
+          &:before {
+            color: var(--ion-color-primary);
+          }
+        }
+      }
+      .wpcf7-list-item-label {
+        line-height: 3.1rem;
+        min-height: 3.1rem;
+        display: block;
+        font-size: 20px;
+        &:before {
+          font-family: "Ionicons";
+          margin: 0, $checkbox-ios-item-start-margin-end, 0, $checkbox-ios-item-start-margin-start;
+        }
+      }
+    }
+  }
+  .wpcf7-checkbox {
+    .wpcf7-list-item {
+      input:checked ~ .wpcf7-list-item-label {
+        &:before {
+          content: "\f2b9";
+        }
+      }
+      .wpcf7-list-item-label {
+        &:before {
+          content: "\f380";
+        }
+      }
+    }
+  }
+  .wpcf7-radio {
+    .wpcf7-list-item {
+      input:checked ~ .wpcf7-list-item-label {
+        &:before {
+          content: "\f361";
+        }
+      }
+      .wpcf7-list-item-label {
+        &:before {
+          content: "\f360";
+        }
+      }
+    }
+  }
+  .wpcf7-acceptance-custom {
+    float: left;
+    position: relative;
+    .wpcf7-acceptance {
+      opacity: 0;
+      width: 20px;
+      margin: 0, $checkbox-ios-item-start-margin-end, 0, 0;
+      & ~ .wpcf7-acceptance-checked {
+        position: absolute;
+        left: 2px;
+        top: -4px;
+        font-size: 20px;
+        &:before {
+          content: "\f380";
+          font-family: "Ionicons";
+        }
+      }
+      &:checked ~ .wpcf7-acceptance-checked {
+        &:before {
+          content: "\f2b9";
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+  }
+  .wpcf7-submit,
+  open-captcha {
+    text-overflow: ellipsis;
+    text-transform: none;
+    white-space: nowrap;
+    user-select: none;
+    border: 0;
+    border-radius: 15px;
+    height: 2.8em;
+    font-size: 15px;
+    color: var(--ion-color-light);
+    background-color: var(--ion-color-primary);
+    margin: 4px 0;
+    padding: 0 1em;
+    display: block;
+    clear: both;
+    width: 100%;
+    contain: strict;
+  }
+  open-captcha {
+    color: var(--ion-color-primary);
+    background: url("/assets/imgs/recaptcha.png");
+    background-size: auto 100%;
+  }
+  .wpcf7-not-valid-tip {
+    font-size: 80%;
+    color: var(--ion-color-danger);
+  }
+}

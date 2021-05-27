@@ -1,0 +1,19 @@
+app-login {
+  .login-header {
+    padding-top: 50%;
+  }
+  .main {
+    padding-top: 30%;
+    .content {
+      max-width: 500px;
+      border-radius: 25px;
+      box-shadow: 0 0 5px var(--ion-color-step-200);
+    }
+  }
+
+  @media (orientation: landscape) {
+    .main {
+      padding-top: 2%;
+    }
+  }
+}

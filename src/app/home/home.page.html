@@ -1,0 +1,81 @@
+
+<ion-header class="home-header">
+  <ion-toolbar> 
+    <ion-buttons slot="start">
+      <img class="icon-home" (click)="toggleMenu()" width="90" src="assets/imgs/UJ-LOGO-1.png">  
+      <!-- <ion-button class="top-sun"clear (click)="changeTheme()">     
+        <ion-icon *ngIf="theme == 'detail-dark'" slot="icon-only" name="sunny"></ion-icon>
+        <ion-icon *ngIf="theme == 'detail-light'" slot="icon-only" name="moon-outline"></ion-icon> 
+      </ion-button> -->
+    </ion-buttons>
+  
+    <ion-title>
+    
+        <div class="d-flex ion-justify-content-center ion-align-items-center app-name">
+         
+        <span>Z-CO.Series</span>
+        
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+     
+      <ion-button clear (click)="toggleMenu()">
+        <ion-menu-button class="menu-ic"></ion-menu-button>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+ 
+
+</ion-header>
+
+<ion-content >
+
+
+  <ion-fab vertical="top" horizontal="end" routerLink="/categories" slot="fixed">
+    <ion-fab-button color="secondary">
+        <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+
+
+  <ion-tabs #homeTabs slot="fixed" >
+   
+    <ion-tab-bar slot="bottom" >
+
+      
+      <ion-tab-button tab="favorites">
+        <ion-icon name="star"></ion-icon>
+        <ion-label>Kedvencek</ion-label>
+      </ion-tab-button>
+
+      
+    
+      <ion-tab-button routerLink="/bookmarks"> 
+        <ion-icon name="bookmarks"></ion-icon>
+        <ion-label>Könyvjelzők</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="settings()"> 
+        <ion-icon name="settings"></ion-icon>
+        <ion-label>Beállítások</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button routerLink="/search">  
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-label>Keresés</ion-label>
+    </ion-tab-button> 
+
+      <ion-tab-button tab="news">  
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Főoldal</ion-label>
+      </ion-tab-button>
+
+      
+      
+    </ion-tab-bar>
+  
+  </ion-tabs>
+
+  
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-list *ngIf="templates" [ngClass]="templates">
+  <!-- foreach posts and add class by templates of post-->
+  <div *ngIf="square[templates]" class="content">
+    <ion-item *ngFor="let post of posts" lines="none" (click)="openPost(post)" [ngClass]="post.format">
+      <!-- thumbnail image -->
+      <ion-thumbnail relative slot="start" *ngIf="templates!='reverse'">
+        <img [src]="post.image_square||'assets/imgs/no-image-square.png'" />
+        <ion-icon *ngIf="icons[post.format]" [name]="icons[post.format]"></ion-icon>
+      </ion-thumbnail>
+      <ion-label>
+        <!-- title post -->
+        <div class="ion-text-wrap ion-margin-bottom"><strong [innerHTML]="post.title"></strong></div>
+        <!-- date created post -->
+        <div overflow place>
+          <small class="ion-float-start">{{post.date|time}}</small>
+          <small class="ion-float-end d-flex ion-align-items-center">
+            <ion-icon *ngIf="post.comment" name="chatbubbles" class="ion-float-start"></ion-icon>
+            <span *ngIf="post.comment">{{post.comment}}</span>
+          </small>
+        </div>
+      </ion-label>
+    
+      <!-- thumbnail image reverse -->
+      <ion-thumbnail relative slot="end" *ngIf="templates=='reverse'">
+        <img [src]="post.image_square||'assets/imgs/no-image-square.png'" />
+        <ion-icon *ngIf="icons[post.format]" [name]="icons[post.format]"></ion-icon>
+      </ion-thumbnail>
+    </ion-item>
+  </div>
+  <div *ngIf="!square[templates]" class="content">
+    <ion-card *ngFor="let post of posts" (click)="openPost(post)" [ngClass]="post.format + (templates=='column'?' ion-no-margin':'')" class="item">
+      <div class="thumbnail" relative>
+        <img [src]="post.image||'assets/imgs/no-image.png'" width-100 />
+        <ion-icon *ngIf="icons[post.format]" [name]="icons[post.format]"></ion-icon>
+      </div>
+      <ion-card-content [ngClass]="templates=='column'?'ion-no-padding ion-padding-end ion-margin-vertical':null">
+        <div class="ion-text-wrap ion-margin-bottom"><strong [innerHTML]="post.title"></strong></div>
+        <div overflow place>
+          <small class="ion-float-start">{{post.date|time}}</small>
+          <small class="ion-float-end d-flex ion-align-items-center">
+            <ion-icon *ngIf="post.comment" name="chatbubbles" class="ion-float-start"></ion-icon>
+            <span *ngIf="post.comment">{{post.comment}}</span>
+          </small>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-list>

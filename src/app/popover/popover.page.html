@@ -1,0 +1,23 @@
+
+ <div class="pop-head"> 
+    <!-- <ion-header-bar class="pop-head"> -->
+      <h1 style="text-align: center; color: white; height: 100%;"><ion-col >Települések</ion-col></h1>
+    <!-- </ion-header-bar> -->
+ </div>
+<ion-content class="ide">
+  <!-- <ion-row class="pop-head"></ion-row> -->
+  <ion-grid >
+    <!-- <ion-icon class="" size="large" (click)="dismiss()" name="close-circle-outline"></ion-icon> -->
+    
+    <div >
+    <ion-row class="" *ngFor="let l of list">
+      <ion-item  class="city-list" *ngIf="l.value == selectedLang" style="text-align: center; color:rgb(32, 101, 170);;"><ion-icon slot="start"  name="business-outline"></ion-icon> {{l.name}}</ion-item >
+      <!-- <ion-col class="city-list" (click)="onClick(l.value)" *ngIf="l.value != selectedLang" style="text-align: center;">{{l.name}} <ion-icon name="chevron-forward-outline"></ion-icon></ion-col> -->
+      <ion-item class="city-list" (click)="onClick(l.value)" *ngIf="l.value != selectedLang" style="text-align: center; color:gray;" button><ion-icon slot="start" name="business-outline"></ion-icon> {{l.name}}</ion-item>
+      <br>
+     
+    </ion-row>
+    </div>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,129 @@
+<ion-header *ngIf="!viewMode">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-button routerLink="/home" routerDirection="root">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+      <ion-button (click)="refresh()">
+        <ion-icon slot="icon-only" name="refresh-circle" *ngIf="!loading"></ion-icon>
+        <ion-spinner name="{{'general._infiniteSpinner'|translate}}" *ngIf="loading"></ion-spinner>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- new -->
+ 
+    <!-- <ion-button (click)="speak()"> 
+   
+      <ion-icon slot="icon-only" *ngIf="speaking == false" name="volume-high-outline"></ion-icon>
+      <ion-icon *ngIf="speaking == true" name="volume-mute-outline"></ion-icon>
+      
+    </ion-button> -->
+   
+    <!-- new end -->
+
+    <ion-buttons slot="end">
+      
+      <ion-button (click)="speak()"> 
+   
+        <ion-icon slot="icon-only" *ngIf="speaking == false" name="volume-high-outline"></ion-icon>
+        <ion-icon *ngIf="speaking == true" name="volume-mute-outline"></ion-icon>
+        
+      </ion-button>
+
+      <!-- <ion-button *ngIf="detail && !type" [color]="bookmarked?'danger':null" (click)="changeBookmark()">
+        <ion-icon slot="icon-only" name="bookmarks"></ion-icon>
+      </ion-button> -->
+      <ion-button (click)="isFont=!isFont">
+        <!-- <ion-icon slot="icon-only" [attr.danger]="isFont?true:null" src="assets/svg/icon-font.svg"></ion-icon> -->
+        <ion-icon slot="icon-only" [attr.danger]="isFont?true:null" name="text-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="isFont">
+    <ion-range [(ngModel)]="fontsize.value" [min]="fontsize.min" [max]="fontsize.max" snaps="true" pin="true" (ionChange)="updateFont()"></ion-range>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+  <!-- Refresh -->
+  <app-refresher slot="fixed" [disabled]="!viewMode" (ionRefresh)="refresh($event)"></app-refresher>
+  <!-- No data -->
+  <app-no-data *ngIf="error && !detail"></app-no-data>
+  <!-- Loading -->
+  <app-loading *ngIf="!detail && !error"></app-loading>
+  <div *ngIf="detail" [style.fontSize]="(fontsize.value*2+(fontsize.value-7)*0.5)+'px'">
+    <!-- Featured -->
+    <img *ngIf="detail.featured_url" [src]="detail.featured_url" width-100 margin-auto (click)="htmlContent && htmlContent.click($event)" class="thumbnail-image object-cover" />
+    <!-- Title -->
+    <div *ngIf="!viewMode" padding-x2>
+      <h3 [innerHTML]="detail.title.rendered" class="ion-no-margin"></h3>
+      <br>
+      <!-- <h6 class="ion-margin-top">{{detail.modified_gmt+'+00:00'|date:('detail._date_format'|translate)}}</h6> -->
+      <h6 *ngIf="detail.m_categories" overflow place class="ion-no-margin ion-text-nowrap">
+        <div *ngFor="let category of detail.m_categories" class="ion-float-start ion-margin-end ion-padding-vertical max-width-100 cat-list"
+          text-ellipsis [routerLink]="['/detail-category', category.id]">
+          <span [innerHTML]="category.name" class="ion-margin-end ion-padding-end"></span>
+        </div>
+      </h6>
+    </div>
+    <!-- Social share -->
+    <!-- <ion-row *ngIf="!viewMode" class="ion-align-items-center ion-padding ion-margin-bottom social-share">
+      <ion-col col-4 *ngFor="let item of socialShare" class="ion-no-padding ion-padding-horizontal">
+        <ion-button size="small" expand="block" [ngClass]="item.id" (click)="shareBy(item)" class="ion-no-margin">
+          <ion-icon slot="icon-only" [name]="item.icon"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row> -->
+    <!-- Message require view ads -->
+    <div *ngIf="!post && detail.required_rewards_ads" padding-x2 class="ion-margin-bottom truewhite ion-text-center">
+      <div class="ion-padding" danger-bg border-radius>
+        <div class="ion-margin-vertical">{{'detail.rewards.message'|translate}}</div>
+        <ion-icon name="caret-forward-circle-outline" tappable (click)="showRewards()" font-64></ion-icon>
+      </div>
+    </div>
+    <!-- Content -->
+    <div *ngIf="post" class="ion-padding ion-margin-bottom post-image">
+      <!-- Content body -->
+      <app-html-content #htmlContent class="ion-padding-horizontal" [innerHTML]="post" [content]="content" makeSafe="true"
+        [(loading)]="loading" [handleLoading]="false" [data]="{id: id, link: detail.link}">
+      </app-html-content>
+       <div *ngIf="!type" class="ion-margin-top display-date-time">{{detail.modified_gmt+'+00:00'|date:('detail._date_format'|translate)}}</div>
+      <hr *ngIf="!type" class="hr-d">
+      
+    </div>
+    <!-- List posts -->
+   <app-list-posts *ngIf="!viewMode && posts && posts.length > 0 && !type" [posts]="posts" templates="column" class="in-categories horizontal-scroll ion-no-box-shadow">
+    </app-list-posts>
+    
+  </div>
+  <!-- Go to top -->
+  <app-goto-top slot="fixed" [content]="content"></app-goto-top>
+</ion-content>
+
+<ion-footer *ngIf="!viewMode && !type">
+  <ion-toolbar>
+    <ion-row class="ion-justify-content-between ion-align-item-center">
+      <ion-button fill="clear" size="small" (click)="previous()" [disabled]="type">
+        <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="detail && !type" [color]="bookmarked?'danger':null" (click)="changeBookmark()">
+        <ion-icon slot="icon-only" name="bookmarks"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" size="small" (click)="next()" [disabled]="type">
+        <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+      </ion-button>
+      <!-- <ion-button fill="clear" size="small" [routerLink]="['/comment', id, detail?{status:detail.comment_status}:{}]" [disabled]="!detail" overflow-visible>
+        <span *ngIf="detail?.m_comment_count" absolute top start class="ion-margin-start">
+          <ion-badge color="danger" class="ion-margin-start">
+            <span>{{detail.m_comment_count}}</span>
+          </ion-badge>
+        </span>
+        <ion-icon slot="icon-only" name="chatbubbles"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" size="small" (click)="share()" [disabled]="!detail">
+        <ion-icon slot="icon-only" name="share"></ion-icon>
+      </ion-button> -->
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

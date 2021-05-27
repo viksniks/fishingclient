@@ -1,0 +1,55 @@
+<ion-content>
+  <div class="login-header" absolute top start width-100>
+    <img absolute top start size-full object-fit src="assets/imgs/login-header.png" />
+  </div>
+  <div absolute top start index-100 width-100 padding-x2 class="main ion-text-center">
+    <div class="d-flex ion-justify-content-center ion-margin-bottom ion-padding-bottom">
+      <ion-back-button defaultHref="/home" color="truewhite"></ion-back-button>
+    </div>
+    <ion-list padding-x2 margin-auto class="ion-no-margin ion-padding-top content">
+      <div *ngIf="'general.config._terms_login'|translate" class="ion-margin-bottom">
+        <ion-item detail="false" lines="none" class="ion-no-padding" [routerLink]="['/detail', 0, {type:1,slug:('general.config._terms_login'|translate)}]">
+          <ion-icon slot="start" name="checkbox-outline" color="success" class="ion-margin-end"></ion-icon>
+          <ion-label [innerHTML]="'login.terms'|translate" class="ion-text-wrap ion-no-margin"></ion-label>
+        </ion-item>
+      </div>
+      <!-- <ion-button expand="block" (click)="facebook()" class="ion-margin-bottom facebook">
+        <span>{{'login.login.facebook'|translate}}</span>
+        <ion-spinner *ngIf="loadingFacebook" spinner-load absolute end name="lines" color="light" class="ion-margin-end"></ion-spinner>
+      </ion-button> -->
+      <form *ngIf="form" [formGroup]="form" class="ion-padding-vertical" (keyup.enter)="submit()">
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">{{'login.username'|translate}}</ion-label>
+          <ion-input formControlName="username" clearInput></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="!isRegister">
+          <ion-label position="stacked">{{'login.password'|translate}}</ion-label>
+          <ion-input type="password" formControlName="password" clearInput></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="isRegister">
+          <ion-label position="stacked">{{'login.email'|translate}}</ion-label>
+          <ion-input type="email" formControlName="email" clearInput></ion-input>
+        </ion-item>
+      </form>
+      <!-- Login button -->
+      <ion-button expand="block" [disabled]="!form.valid" (click)="login()" *ngIf="!isRegister">
+        <span>{{'login.login.title'|translate}}</span>
+        <ion-spinner *ngIf="loading" spinner-load absolute end name="lines" color="light" class="ion-margin-end"></ion-spinner>
+      </ion-button>
+      <!-- Register button -->
+      <ion-button expand="block" [disabled]="!form.valid" (click)="register()" *ngIf="isRegister">
+        <span>{{'login.register.title'|translate}}</span>
+        <ion-spinner *ngIf="loading" spinner-load absolute end name="lines" color="light" class="ion-margin-end"></ion-spinner>
+      </ion-button>
+      <!-- Forgot button -->
+      <ion-button (click)="forgot()" fill="clear" color="dark" class="ion-no-margin">
+        <span>{{'login.forgot.title'|translate}}</span>
+      </ion-button>
+    </ion-list>
+    <h4></h4>
+    <ion-button (click)="switch()" fill="clear">
+      <span *ngIf="!isRegister">{{'login.register.hint'|translate}}</span>
+      <span *ngIf="isRegister">{{'login.login.hint'|translate}}</span>
+    </ion-button>
+  </div>
+</ion-content>

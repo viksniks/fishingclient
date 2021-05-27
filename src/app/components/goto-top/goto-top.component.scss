@@ -1,0 +1,19 @@
+@import "../../../theme/shared_variables.scss";
+
+:host {
+  position: absolute;
+  bottom: $goto-top-bottom;
+  left: 50%;
+  width: $goto-top-size;
+  height: $goto-top-size;
+  margin-top: -#{$goto-top-size / 2};
+  margin-left: -#{$goto-top-size / 2};
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--ion-color-light);
+  box-shadow: 0 0 5px var(--ion-color-dark);
+  .button {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}

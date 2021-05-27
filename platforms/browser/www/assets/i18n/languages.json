@@ -1,0 +1,19 @@
+{
+  "default": "Cork County",
+  "languages":[
+    {
+      "name": "Cork",
+      "value": "Cork"
+    },
+    {
+      "name": "Cork County",
+      "value": "Cork County"
+    },
+    {
+      "name": "Dublin",
+      "value": "Dublin" 
+    }
+    
+  ]
+}
+

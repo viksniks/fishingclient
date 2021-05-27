@@ -1,0 +1,56 @@
+{
+  "_args": [
+    [
+      "com-stionic-plugin@1.0.12",
+      "/Users/krisztianbalogh/Documents/Applications Themes/HalaNews_1.1.4/Sources"
+    ]
+  ],
+  "_development": true,
+  "_from": "com-stionic-plugin@1.0.12",
+  "_id": "com-stionic-plugin@1.0.12",
+  "_inBundle": false,
+  "_integrity": "sha512-Zfexqh6vThRjPd+QeFXvTcGzn+cdXKKLoHwOe/IYOR+kKj35n6Kgy+WlyLb0NGXpr6wdao9nTUmkWf0NcDQRQw==",
+  "_location": "/com-stionic-plugin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "com-stionic-plugin@1.0.12",
+    "name": "com-stionic-plugin",
+    "escapedName": "com-stionic-plugin",
+    "rawSpec": "1.0.12",
+    "saveSpec": null,
+    "fetchSpec": "1.0.12"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/com-stionic-plugin/-/com-stionic-plugin-1.0.12.tgz",
+  "_spec": "1.0.12",
+  "_where": "/Users/krisztianbalogh/Documents/Applications Themes/HalaNews_1.1.4/Sources",
+  "author": {
+    "name": "stionic"
+  },
+  "bugs": {
+    "url": "https://github.com/stionic/com-stionic-plugin/issues"
+  },
+  "description": "Stionic plugin for Cordova Ionic",
+  "homepage": "https://github.com/stionic/com-stionic-plugin#readme",
+  "keywords": [
+    "stionic",
+    "mobile",
+    "app",
+    "cordova",
+    "ionic"
+  ],
+  "license": "MIT",
+  "name": "com-stionic-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stionic/com-stionic-plugin.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.12"
+}

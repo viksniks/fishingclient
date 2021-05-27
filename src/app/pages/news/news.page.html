@@ -1,0 +1,29 @@
+<ion-content #content>
+  <!-- Refresh -->
+  <app-refresher slot="fixed" [disabled]="!loaded" (ionRefresh)="doRefresh($event)"></app-refresher>
+  <!-- Sticky -->
+  <div *ngIf="sticky && sticky.length > 0" class="slides-sticky ion-padding-horizontal ion-margin-bottom">
+    <ion-slides #slides autoplay="3000" pager="true" [options]="slideOptions" (click)="openStickySlide($event)">
+      <ion-slide *ngFor="let post of sticky" [ngClass]="post.format">
+        <div padding-top-50 relative width-100>
+          <img [src]="post.image||'assets/imgs/no-image.png'" absolute top start class="ion-float-start object-cover size-full">
+        </div>
+        <div gradient absolute bottom width-100 padding-x2 place class="ion-text-left">
+          <div [innerHTML]="post.title"></div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <!-- no data -->
+  <app-no-data *ngIf="loaded && (!posts || posts.length < 1)" [inner]="sticky && sticky.length > 0"></app-no-data>
+  <!-- loading -->
+  <app-loading *ngIf="!loaded"></app-loading>
+  <!-- 4 column posts -->
+  <app-list-posts *ngIf="colPosts" [posts]="colPosts" templates="column"></app-list-posts>
+  <!-- List posts -->
+  <app-list-posts *ngIf="posts" [posts]="posts"></app-list-posts>
+  <!-- Load more -->
+  <app-infinite-scroll threshold="45%" (ionInfinite)="load($event)" *ngIf="!over && posts?.length > 0"></app-infinite-scroll>
+  <!-- Go to top -->
+  <app-goto-top slot="fixed" [content]="content"></app-goto-top>
+</ion-content>

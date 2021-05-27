@@ -1,0 +1,299 @@
+{
+  "general": {
+    "config": {
+      "url": "https://admin.mediastarireland.ie",
+      "_terms": {
+        "slug": "app-terms",
+        "message": "<h6>To continue, you must agree to the <span class='primary'>Terms and Conditions and Privacy Policy</span></h6>",
+        "read": "Read",
+        "agree": "Agree"
+      },
+      "_terms_login": "app-terms",
+      "title": "Warning",
+      "message": "Server connection failed, please check network connection. If this continues, contact administrator",
+      "offline": "Offline",
+      "refreshData": "Pull down to refresh data",
+      "tokenInvalid": "Your login session has expired, please login again",
+      "try": "Try again"
+    },
+    "offlineText": "Offline mode. Click to Online",
+    "_pullingIcon": "arrow-down-circle-outline",
+    "_pullToRefresh": "",
+    "_refreshingSpinner": "lines",
+    "_refreshing": "",
+    "_infiniteSpinner": "lines",
+    "time": {
+      "_date_format": "dd/MM/y",
+      "now": "Just now",
+      "minute": " minute ago",
+      "minutes": " minutes ago",
+      "hour": " hour ago",
+      "hours": " hours ago",
+      "day": " day ago",
+      "days": " days ago"
+    },
+    "error": {
+      "request_timeout": "Request timeout",
+      "maintenance": "System maintenance"
+    },
+    "noData": "No Data Available"
+  },
+  "menu": {
+    "notifications": "Notifications",
+    "bookmarks": "Bookmarks",
+    "share": "Share",
+    "rate": "Rate our app",
+    "refresh": {
+      "title": "Refresh App",
+      "message": "Are you sure to open app again?",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "settings": {
+      "title": "Settings",
+      "cancel": "Cancel"
+    },
+    "languages": {
+      "title": "Languages",
+      "cancel": "Cancel",
+      "save": "Save"
+   
+    },
+    "templates": {
+      "title": "Templates",
+      "message": "Update template of the post list will restart application",
+      "options": [
+        {
+          "text": "List",
+          "_value": "list"
+        },
+        {
+          "text": "List reverse",
+          "_value": "reverse"
+        },
+        {
+          "text": "Card",
+          "_value": "card"
+        },
+        {
+          "text": "Column",
+          "_value": "column"
+        }
+      ],
+      "cancel": "Cancel"
+    },
+    "cache": {
+      "title": "Clear cache",
+      "message": "All application caches will be permanently deleted, unrecoverable",
+      "no": "Cancel",
+      "yes": "Clear",
+      "success": "The cache was successfully deleted",
+      "error": "Clear cache failure"
+    }
+  },
+  "home": {
+    "update": {
+      "title": "Update",
+      "message": "The application has a new version, do you want to update?",
+      "no": "No",
+      "yes": "Yes"
+    },
+    "exitApp": "Press back button twice to exit",
+    "_deeplinks": {},
+    "login": "Login"
+  },
+  "login": {
+    "username": "Username",
+    "password": "Password",
+    "email": "Email",
+    "terms": "By continuing, you agree to <span class='primary'>Terms and Conditions</span>",
+    "login": {
+      "title": "Login",
+      "hint": "Already have an account? Login",
+      "wrong": "Login failed",
+      "facebook": "Login with Facebook",
+      "success": "Login successful"
+    },
+    "register": {
+      "title": "Register",
+      "hint": "New user? Register",
+      "default": "An error occurred, please try again later",
+      "users_can_not_register": "Registration is currently disabled",
+      "username_exists": "Username already exists",
+      "email_exists": "Email already exists",
+      "success": "Account registration successful"
+    },
+    "forgot": {
+      "title": "Forgot password",
+      "message": "Please input an username to retrieve your password",
+      "no": "Cancel",
+      "yes": "Send",
+      "success": "Please check Email for reset password",
+      "mail": "The system can't send mail, please contact the administrator",
+      "error": "Reset password failed"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "name": "Name",
+    "email": "Email",
+    "update": "Save",
+    "success": "Updated",
+    "logout": {
+      "title": "Logout",
+      "message": "Are you sure to logout?",
+      "no": "No",
+      "yes": "Yes"
+    },
+    "errors": {
+      "default": "An error occurred, please try again after",
+      "need_login": "You need to login",
+      "rest_cannot_edit": "You can't edit this account",
+      "rest_invalid_param": "The information is invalid",
+      "rest_user_invalid_email": "Email has been used",
+      "password_mismatch": "Password and Confirm password don't match"
+    },
+    "password": {
+      "title": "Change password",
+      "new_password": "New password",
+      "confirm_password": "Confirm password",
+      "no": "Cancel",
+      "yes": "Change",
+      "success": "Change password successful"
+    },
+    "keep": {
+      "title": "Logout another device",
+      "message": "Are you sure to logout all logins on another device?",
+      "no": "No",
+      "yes": "Yes",
+      "success": "Success",
+      "error": "Failure"
+    }
+  },
+  "favorites": {
+    "noData": {
+      "message": "Seems you didn't like any categories",
+      "button": "Setting now!"
+    },
+    "chose": "Chose categories",
+    "save": "Save",
+    "saved": "Saved",
+    "view": "Favorites",
+    "setting": "Setting"
+  },
+  "categories": {
+    "clear": {
+      "title": "Clear reorder",
+      "message": "Are you sure to clear Reorder categories?",
+      "no": "No",
+      "yes": "Yes"
+    }
+  },
+  "search": {
+    "search": "Search",
+    "history": "History",
+    "clear": {
+      "title": "Clear history",
+      "message": "Are you sure to clear Search history?",
+      "no": "No",
+      "yes": "Yes"
+    }
+  },
+  "detail": {
+    "_date_format": "H:mm - dd/MM/y",
+    "_socialShare": [
+      {
+        "id": "facebook",
+        "icon": "logo-facebook",
+        "android": "com.facebook.katana",
+        "ios": "com.apple.social.facebook"
+      },
+      {
+        "id": "whatsapp",
+        "icon": "logo-whatsapp",
+        "android": "com.whatsapp",
+        "ios": "whatsapp"
+      },
+      {
+        "id": "twitter",
+        "icon": "logo-twitter",
+        "android": "com.twitter.android",
+        "ios": "com.apple.social.twitter"
+      }
+    ],
+    "no_previous": "The previous article is not available",
+    "no_next": "The next article is not available",
+    "bookmark": "Bookmark successful",
+    "unbookmark": "Delete bookmark successful",
+    "rewards": {
+      "title": "Rewards",
+      "message": "You need view rewards ads before view this content",
+      "no": "No",
+      "yes": "Very Happy"
+    },
+    "captcha": "Update captcha successful",
+    "canNotSubmit": "Can not connect to server. Please check your internet or try again later",
+    "spam": "Captcha is incorrect or has expired"
+  },
+  "comments": {
+    "title": "Comments",
+    "close": "Comments are closed for this item",
+    "noData": "Be the first to comment!",
+    "name": "Name",
+    "email": "Email",
+    "content": "Content",
+    "send": "Send",
+    "guest": "Guest",
+    "message": {
+      "default": "An error occurred, please try again later",
+      "hold": "Your comment is pending for moderation",
+      "comment_flood": "You comment too fast, please slow down",
+      "comment_duplicate": "You commented on this before",
+      "rest_comment_closed": "Comments are currently closed",
+      "rest_comment_login_required": "You need to login to comment",
+      "rest_comment_author_data_required": "You need to provide a valid name and email for comment"
+    },
+    "logout": {
+      "title": "Logout Facebook",
+      "message": "Are you sure to logout Facebook?",
+      "no": "No",
+      "yes": "Yes"
+    },
+    "reply": "Reply",
+    "view": "View"
+  },
+  "bookmark": {
+    "search": "Search bookmarks",
+    "delete": "Delete",
+    "noData": {
+      "message1": "Seems you didn't save any posts",
+      "message2": "Bookmarks now for read offline!",
+      "button": "Home"
+    },
+    "clear": {
+      "title": "Clear bookmarks",
+      "message": "Are you sure to delete all bookmarks?",
+      "no": "No",
+      "yes": "Yes"
+    }
+  },
+  "notification": {
+    "title": "Notifications",
+    "_date_format": "H:mm - dd/MM/y",
+    "noData": "No clicked notifications yet!",
+    "launch": "Open website",
+    "deeplinks": "Open",
+    "delete": {
+      "title": "Delete notification",
+      "message": "Are you sure to delete?",
+      "no": "No",
+      "yes": "Yes"
+    },
+    "clear": {
+      "title": "Clear notifications",
+      "message": "Are you sure to delete all notifications?",
+      "no": "No",
+      "yes": "Yes"
+    }
+  }
+}

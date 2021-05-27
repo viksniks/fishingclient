@@ -1,0 +1,164 @@
+@import "./shared_variables.scss";
+
+.ion-float-start,
+[dir="rtl"] .ion-float-end {
+  float: left !important;
+}
+.ion-float-end,
+[dir="rtl"] .ion-float-start {
+  float: right !important;
+}
+
+[no-padding-important] {
+  padding: 0 !important;
+}
+[padding-x2] {
+  padding: $content-padding * 2;
+}
+[padding-top-50] {
+  padding-top: 50%;
+}
+[size-full],
+.size-full,
+[width-100],
+.width-100 {
+  width: 100% !important;
+}
+.max-width-100 {
+  max-width: 100%;
+}
+[height-auto] {
+  height: auto;
+}
+[size-full],
+.size-full,
+[height-100],
+.height-100 {
+  height: 100% !important;
+}
+[relative] {
+  position: relative;
+}
+[absolute] {
+  position: absolute;
+  &[top] {
+    top: 8px;
+  }
+  &[bottom] {
+    bottom: 0;
+  }
+  &[end] {
+    right: 0;
+  }
+  &[start] {
+    left: 0;
+  }
+}
+[overflow] {
+  overflow: auto;
+}
+[overflow-visible] {
+  overflow: visible;
+  --overflow: visible;
+}
+[border-top] {
+  border-top: $hairlines-width solid var(--ion-color-step-50);
+}
+[border-radius] {
+  border-radius: 4px;
+}
+[border-round] {
+  border-radius: 50%;
+}
+.ion-no-border {
+  border: 0 !important;
+  --border: 0 !important;
+  --border-width: 0 !important;
+}
+[margin-auto] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+[gradient] {
+  background: #000;
+  background: -moz-linear-gradient(top, transparent 0%, #000 100%);
+  background: -webkit-linear-gradient(top, transparent 0%, #000 100%);
+  background: linear-gradient(to bottom, transparent 0%, #000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='transparent', endColorstr='#000',GradientType=0 );
+}
+[blur-inner] {
+  background: rgba(255, 255, 255, 0.3);
+}
+[transparent] {
+  background: transparent;
+  --background: transparent;
+}
+[text-ellipsis] {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+[index-100] {
+  z-index: 100;
+}
+[d-flex],
+.d-flex {
+  display: flex;
+}
+[object-cover],
+.object-cover {
+  object-fit: cover !important;
+}
+[box-shadow] {
+  box-shadow: 0 0 1px var(--ion-color-step-200);
+  margin-bottom: 2px;
+}
+[rotate-90] {
+  transform: rotate(90deg);
+}
+[font-64],
+.font-64 {
+  font-size: 64px;
+}
+[user-select],
+.user-select {
+  user-select: auto !important;
+}
+
+$colors: (
+  primary: var(--ion-color-primary),
+  secondary: var(--ion-color-secondary),
+  danger: var(--ion-color-danger),
+  light: var(--ion-color-light),
+  dark: var(--ion-color-dark),
+  place: var(--ion-color-place),
+  truewhite: var(--ion-color-truewhite),
+  trueblack: var(--ion-color-trueblack),
+);
+
+@each $color in $colors {
+  $key: nth($color, 1);
+  $value: nth($color, 2);
+  .#{$key},
+  [#{$key}] {
+    color: $value !important;
+  }
+  [#{$key}-bg] {
+    background-color: $value !important;
+  }
+}
+
+.facebook {
+  --background: #3b5998;
+  &.button-clear {
+    --color: #3b5998 !important;
+    --background: transparent;
+  }
+}
+.whatsapp {
+  --background: #35de55;
+}
+.twitter {
+  --background: #1da1f2;
+}

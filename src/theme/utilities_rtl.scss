@@ -1,0 +1,14 @@
+@import "./shared_variables.scss";
+
+[dir="rtl"] {
+  [absolute] {
+    &[end] {
+      right: unset;
+      left: 0;
+    }
+    &[start] {
+      right: 0;
+      left: unset;
+    }
+  }
+}

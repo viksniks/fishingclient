@@ -1,0 +1,155 @@
+<ion-menu side="start" menu-id="root-menu" content-id="root-router" type="overlay" swipeGesture="false" class="root-menu">
+  <ion-header>
+    <div class="container-test">
+    <img src="assets/imgs/menu.jpg" class="ion-float-start" />
+    <div class="text-test text-cont"> <img class="icon-home" width="90" src="assets/imgs/UJ-LOGO-1.png">  </div>
+    <!-- <ion-searchbar class="text-kereso text-cont"   placeholder="Város keresés.." (ionChange)="getItems($event)">
+  
+    </ion-searchbar> -->
+    <!-- <ion-icon name="mic-circle-outline" size="large" (click)="askPermission()"></ion-icon> -->
+    </div>
+  </ion-header>
+ 
+  <ion-content transparent>
+    <!-- Refresh -->
+    <app-refresher slot="fixed" (ionRefresh)="getPages($event)" color="truewhite"></app-refresher>
+    <!-- List functions -->
+    <ion-list class="ion-no-margin ion-margin-top">
+
+      <!-- <ion-searchbar class="text-kereso" placeholder="Search city.." (ionChange)="getItems($event)">
+      </ion-searchbar> -->
+      <!-- <ion-list class="results-list" *ngIf="isItemAvailable">
+        <ion-item class="item-list-res" (click)="tempCall(item)" *ngFor="let item of items">  <ion-icon slot="start" name="business-outline"></ion-icon> {{ item.value}}  <ion-icon name="chevron-forward-outline"></ion-icon></ion-item>
+        <ion-label class="no-city-found">{{str}}</ion-label>   
+      
+      </ion-list> -->
+
+     
+      <!-- List voice results -->
+      <div id="ctc">
+    
+      </div>
+    
+
+      <!-- Voice search -->
+      <!-- <ion-item detail="false" lines="none" class="voice-back" (click)="askPermission()">
+      <ion-icon slot="start" name="mic-circle-outline" size="large" ></ion-icon>
+        <span class="telepules-voice">Település keresés hanggal</span>
+      </ion-item> -->
+
+
+      <!-- new -->
+      <!-- <hr color="white">
+      
+        <ion-item detail="false" lines="none" class="voice-back" (click)="languages()">
+          <ion-icon slot="start" name="location-outline"></ion-icon>
+          <span class="telepules">Települések</span>        
+        </ion-item>
+         -->
+      
+      <!-- <hr color="white"> -->
+
+   
+
+           <!-- AUTO COMPLETE -->
+           <!-- <ion-item (click)="clickedSearchIcon($event)">
+            <ion-icon slot="start" name="search"></ion-icon>
+            
+            <ion-label>Search City</ion-label>
+          
+          </ion-item>
+  
+        <ion-searchbar *ngIf="showSearchBar" (ionChange)="getItems($event)">
+        </ion-searchbar>
+        
+        <ion-list class="results-list" *ngIf="isItemAvailable">
+          <ion-item class="item-list-res" (click)="tempCall(item)" *ngFor="let item of items">  <ion-icon slot="start" name="location-outline"></ion-icon> {{ item.value}}</ion-item>
+          <ion-label class="no-city-found">{{str}}</ion-label>
+          
+        </ion-list> -->
+
+        <!-- Jobs nav -->
+        <!-- <ion-menu-toggle>
+          <ion-item [routerLink]="['/detail-category','7']" detail="false"§ lines="none">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            <span>Jobs</span>
+          </ion-item>
+        </ion-menu-toggle> -->
+
+      <!-- new end -->
+
+      <!-- verseny -->
+      <ion-menu-toggle>
+        <ion-item detail="false" lines="none" routerLink="/fishing">  
+          <ion-icon class="icon-vip" slot="start" name="fish-outline"></ion-icon>
+          <span>Horgászverseny</span>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle>
+        <ion-item detail="false" lines="none" routerLink="/bookmarks">  
+          <ion-icon slot="start" class="icon-vip" name="bookmarks"></ion-icon>
+          <span>{{'menu.bookmarks'|translate}}</span>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item detail="false" lines="none" routerLink="/notifications">
+          <ion-icon slot="start" class="icon-vip" name="notifications"></ion-icon>
+          <span>{{'menu.notifications'|translate}}</span>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <!-- <ion-menu-toggle>
+        <ion-item detail="false" lines="none" [routerLink]="['/reports']">
+          <ion-icon slot="start" name="document-outline"></ion-icon>
+          <span>Bejelentések</span>
+        </ion-item>
+      </ion-menu-toggle>  -->
+      <ion-menu-toggle>
+        <ion-item detail="false" lines="none" (click)="settings()">
+          <ion-icon slot="start" class="icon-vip" name="settings"></ion-icon>
+          <span>{{'menu.settings.title'|translate}}</span>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle>
+        <ion-item detail="false" lines="none" (click)="share()">
+          <ion-icon slot="start" class="icon-vip" name="share"></ion-icon>
+          <span>Megosztás</span>
+        </ion-item>
+      </ion-menu-toggle>
+      <!-- <ion-menu-toggle>
+        <ion-item detail="false" lines="none" (click)="rate()">
+          <ion-icon slot="start" name="star"></ion-icon>
+          <span>{{'menu.rate'|translate}}</span>
+        </ion-item>
+      </ion-menu-toggle> -->
+      <!-- <ion-menu-toggle>
+        <ion-item detail="false" lines="none" (click)="refresh(true)">
+          <ion-icon slot="start" name="refresh"></ion-icon>
+          <span>{{'menu.refresh.title'|translate}}</span>
+        
+        </ion-item>
+      </ion-menu-toggle> -->
+
+ 
+     
+    
+    </ion-list>
+    
+    <!-- List page -->
+    <ion-list class="ion-no-margin" *ngIf="pages && pages.length > 0">
+      <ion-menu-toggle *ngFor="let page of pages">
+        <ion-item detail="false" lines="none" [routerLink]="['/detail', page.id, {type:1}]">
+          <ion-icon slot="start" class="icon-vip" name="chevron-forward-outline"></ion-icon>
+          <span [innerHTML]="page.title"></span>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+    <div padding-x2></div>
+    <a href="mailto:admin@z-co.media"> <img src="assets/imgs/reklam.jpg" alt="Spar" class="Spar-img" style="width: 100%; margin-bottom: 0;" padding></a>
+    <div class="m-ma-vedve">© Horgászverseny / <a (click)="openUrl('https://z-co.media/fejlesztes/')">Z-Co. Media</a></div>
+  </ion-content>
+  
+</ion-menu>  
+<ion-router-outlet id="root-router"></ion-router-outlet>

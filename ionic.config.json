@@ -1,0 +1,7 @@
+{
+  "name": "halanews",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

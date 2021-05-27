@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      
+    </ion-buttons>
+    <ion-title>
+      <span>Bejelentések</span>
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <form> -->
+  <ion-list>
+    
+
+ <!-- Category -->
+    <ion-item>
+          
+      <ion-label>Category:</ion-label>
+      <ion-select [(ngModel)]="category" multiple="false" okText="Select" cancelText="Dismiss" required>
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+      </ion-select>
+      
+    </ion-item>
+     <!-- Description -->
+     <ion-item>
+      <ion-textarea [(ngModel)]="desc" rows="6" cols="20" placeholder="Description..." required></ion-textarea>
+    </ion-item>
+     <!-- Location -->
+    <ion-item>
+      <ion-label>Location:</ion-label>
+      <ion-input [(ngModel)]="address" type="text" placeholder="" name="location"  required></ion-input>
+    </ion-item>
+   <br>
+   <!-- Images -->
+
+  
+   <div class="drop-zone" (click)="presentActionSheet(fileLoader)">      
+   Image files 
+     </div>
+     <input type="file" multiple="multiple" id="fileLoader" #fileLoader name="files" title="Load File" hidden required/>
+     
+   <span *ngIf="processing">
+     <ion-spinner></ion-spinner>
+     <h5>Processing...</h5>
+   </span>
+   <ion-item *ngFor="let img of images;let i=index;">
+
+     <img id="checkinImage"  slot="start" [src]="img" (load)="imageLoaded()" /> 
+ 
+     <ion-icon name="trash" class="trash" size="large" slot="end" (click)="removePic(i)"></ion-icon>
+   
+   </ion-item>
+  
+  </ion-list>
+  <br>
+  <ion-button expand="full" (click)="submit()" color="secondary" type="button" >Submit</ion-button>
+ 
+
+  <ion-fab (click)="presentModal()" vertical="bottom" class="float-location" horizontal="end" slot="fixed">
+     
+
+    <ion-icon class="loc-float" name="information-outline"></ion-icon>
+  
+  </ion-fab>
+
+</ion-content>
+
+

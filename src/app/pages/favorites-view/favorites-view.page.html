@@ -1,0 +1,17 @@
+<ion-content #content>
+  <!-- Refresh -->
+  <app-refresher slot="fixed" [disabled]="!loaded" (ionRefresh)="doRefresh($event)"></app-refresher>
+  <!-- no data -->
+  <app-no-data *ngIf="loaded && (!favorites || favorites.length < 1 || !posts || posts.length < 1)" src="assets/imgs/no-data-favorites.svg">
+    <div place class="ion-margin-bottom">{{'favorites.noData.message'|translate}}</div>
+    <ion-button color="danger" size="small" class="ion-margin-top" routerLink="/home/favorites/setting">{{'favorites.noData.button'|translate}}</ion-button>
+  </app-no-data>
+  <!-- loading -->
+  <app-loading *ngIf="!loaded"></app-loading>
+  <!-- List posts -->
+  <app-list-posts *ngIf="posts" [posts]="posts"></app-list-posts>
+  <!-- Load more -->
+  <app-infinite-scroll threshold="45%" (ionInfinite)="load($event)" *ngIf="!over && posts?.length > 0"></app-infinite-scroll>
+  <!-- Go to top -->
+  <app-goto-top slot="fixed" [content]="content"></app-goto-top>
+</ion-content>

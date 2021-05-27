@@ -1,0 +1,17 @@
+:host {
+  ion-tab-button {
+    flex: unset;
+    ion-chip {
+      border-bottom-width: 2px;
+      margin: 0 var(--ion-margin);
+      border-radius: 0;
+    }
+    &.tab-selected {
+      ion-chip {
+        color: var(--ion-color-secondary, 0, 0, 0) !important;
+        border-bottom-style: solid;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}

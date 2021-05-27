@@ -1,0 +1,99 @@
+@import "../../../theme/shared_variables.scss";
+
+:host {
+  display: block;
+  &.horizontal-scroll {
+    .column {
+      .content {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        .item {
+          flex: 0 0 48%;
+          &:last-child {
+            padding-right: var(--ion-padding);
+          }
+        }
+      }
+    }
+  }
+  .item {
+    --color: var(--ion-color-step-950);
+    ion-thumbnail,
+    .thumbnail {
+      ion-icon {
+        font-size: 48px;
+        color: var(--ion-color-light);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -24px;
+        margin-left: -24px;
+      }
+    }
+  }
+  .list,
+  .reverse {
+    .item {
+      --padding-start: 0;
+      ion-thumbnail {
+        --size: 80px;
+        min-width: var(--size);
+        min-height: var(--size);
+        margin: 10px !important;
+        overflow: hidden;
+        border-radius: 4px;
+      }
+      ion-label {
+        margin-right: 2px;
+        margin-left: 2px;
+      }
+    }
+  }
+  .reverse {
+    .item {
+      --padding-start: #{$item-ios-padding-end / 2};
+      --inner-padding-end: 0;
+    }
+  }
+  .card {
+    .item {
+      margin: var(--ion-margin);
+    }
+  }
+  .column {
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 $content-padding/2;
+    }
+    .item {
+      display: block;
+      width: 50%;
+      padding: 0 $content-padding/2;
+      box-shadow: none;
+      top:8px;
+      .thumbnail {
+        padding-left: 100%;
+        padding-top: 50%;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 4px;
+        }
+      }
+      .card-content-ios .ion-text-wrap {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: $list-posts-column-title-line * $list-posts-column-title-line-height;
+        line-height: $list-posts-column-title-line-height;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $list-posts-column-title-line;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+app-detail-category {
+  .list-childs {
+    .button {
+      --padding-start: 8px;
+      --padding-end: 8px;
+      ion-badge {
+        border-radius: 50px;
+      }
+    }
+  }
+}

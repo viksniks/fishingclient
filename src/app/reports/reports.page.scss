@@ -1,0 +1,46 @@
+.drop-zone { 
+    background-color: #f6f6f6;
+    border: dotted 3px #848484; 
+    height: 10vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    color: gray;
+    
+}
+
+#checkinImage{
+    height: 50px;
+    width: 50px;
+}
+
+// .trash{
+//     position: absolute;
+//     right: 10px;
+//     bottom: 20px;
+//     color: red;
+//     font-size: 20px;
+
+// }
+
+
+// float icon
+.float-location{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:20px;
+	right:10px;
+	background-color: rgb(40, 89, 168);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  // box-shadow: 2px 2px 3px #999;
+  z-index: 1200;
+}
+
+.loc-float{
+	margin-top:22px;
+}

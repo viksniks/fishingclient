@@ -1,0 +1,52 @@
+app-html-content {
+  display: block;
+  .html-content {
+    font-size: 110%;
+    line-height: 150%;
+    .hide-app-detail,
+    [id*="div-gpt-ad"],
+    ins.adsbygoogle {
+      display: none !important;
+    }
+    :first-child {
+      margin-top: 0;
+    }
+    * {
+      max-width: 100%;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+    img,
+    iframe {
+      display: block;
+      margin: 0 auto;
+    }
+    img {
+      height: auto;
+    }
+    figure {
+      margin: 0 auto;
+      figcaption {
+        width: 100%;
+        padding: 10px;
+      }
+    }
+    .wp-video {
+      margin: 0 auto;
+    }
+    ul {
+      li {
+        line-height: 150%;
+      }
+    }
+  }
+
+  @import "./wpcf7.scss";
+}

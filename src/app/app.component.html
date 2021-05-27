@@ -1,0 +1,32 @@
+<!-- Intro slide -->
+<div absolute size-full top start index-100 light-bg *ngIf="intro">
+	<ion-button absolute bottom end index-100 fill="clear" size="large" color="success" (click)="skipIntro()" class="ion-margin-vertical">
+		<ion-icon slot="icon-only" name="close-circle"></ion-icon>
+	</ion-button>
+	<ion-slides centeredSlides="true" pager="true" height-100 class="slides-intro">
+		<ion-slide padding-x2><img src="assets/imgs/intro/1.png" /></ion-slide>
+		<ion-slide padding-x2><img src="assets/imgs/intro/2.png" /></ion-slide>
+		<ion-slide padding-x2><img src="assets/imgs/intro/3.png" /></ion-slide>
+	</ion-slides>
+</div>
+<!-- App -->
+<ion-app *ngIf="rooted" [class.isOffline]="isOffline">
+  <app-menus></app-menus>
+</ion-app>
+<!-- Offline button -->
+<ion-button expand="full" absolute start width-100 class="button-offline ion-no-margin" [hidden]="!isOffline" (click)="getConfig()">
+	<span>{{'general.offlineText'|translate}}</span>
+</ion-button>
+<!-- Loading landing -->
+<ion-row *ngIf="!intro && !loaded" absolute top start size-full light-bg class="ion-align-items-center">
+	<div width-100 class="ion-text-center connecting-text">
+		<ion-spinner color="blue" [name]="'general._infiniteSpinner'|translate"></ion-spinner>
+		<!-- <img width="70" src="assets/imgs/loading.gif"/> -->
+		
+		<br>
+		Csatlakozás az adatbázishoz...
+
+	</div>
+</ion-row>
+
+

@@ -1,0 +1,20 @@
+<ion-item lines="none" class="ion-margin-top ion-padding-top">
+  <ion-avatar slot="start">
+    <img [src]="comment.avatar||'assets/imgs/person.png'" />
+  </ion-avatar>
+  <ion-label class="ion-no-margin" place>
+    <p class="d-flex item-aligns-center ion-text-wrap">
+      <span [innerHTML]="comment.name||('comments.guest'|translate)"></span>
+      <ion-icon *ngIf="comment.user_id" primary name="person" class="ion-margin-start"></ion-icon>
+    </p>
+    <small>{{comment.date|time}}</small>
+  </ion-label>
+  <ion-button *ngIf="!hideView && (status=='open' || comment.has_child)" slot="end" fill="clear" (click)="viewComment(comment)">
+    <span *ngIf="!comment.has_child">{{'comments.reply'|translate}}</span>
+    <span *ngIf="comment.has_child">{{'comments.view'|translate}}</span>
+  </ion-button>
+</ion-item>
+<ion-item lines="none" comment-content>
+  <ion-avatar slot="start"></ion-avatar>
+  <ion-label class="ion-text-wrap ion-no-margin" [innerHTML]="comment.content"></ion-label>
+</ion-item>

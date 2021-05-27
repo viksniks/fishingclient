@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar [color]="category?.color">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/categories"></ion-back-button>
+      <ion-button routerLink="/home/categories" routerDirection="root">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+			<span [innerHTML]="category?.name"></span>
+		</ion-title>
+		<ion-buttons slot="end">
+			<ion-button *ngIf="category?.id" [routerLink]="['/search', {id:category.id}]">
+				<ion-icon slot="icon-only" name="search"></ion-icon>
+			</ion-button>
+			<ion-button (click)="changeSubscribe()">
+				<ion-icon *ngIf="!subscribe[id]" slot="icon-only" name="notifications"></ion-icon>
+				<ion-icon *ngIf="subscribe[id]" slot="icon-only" name="notifications-off"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+  </ion-toolbar>
+  <!-- List childs -->
+	<ion-toolbar *ngIf="childs && childs.length > 0" class="list-childs ion-no-padding ion-border">
+		<ion-row height-100 overflow nowrap>
+      <ion-button *ngFor="let child of childs" fill="clear" class="ion-no-margin" [routerLink]="['/detail-category', child.id]">
+				<ion-badge [color]="child.color || 'place'" class="ion-padding-vertical">
+          <span [innerHTML]="child.name"></span>
+				</ion-badge>
+			</ion-button>
+		</ion-row>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+	<!-- Refresh -->
+	<app-refresher slot="fixed" [disabled]="!loaded" (ionRefresh)="doRefresh($event)"></app-refresher>
+	<!-- no data -->
+  <app-no-data *ngIf="loaded && (!posts || posts.length < 1)"></app-no-data>
+	<!-- Loading -->
+	<app-loading *ngIf="!loaded"></app-loading>
+	<!-- List posts -->
+	<app-list-posts *ngIf="posts" [posts]="posts"></app-list-posts>
+	<!-- Load more -->
+	<app-infinite-scroll threshold="45%" (ionInfinite)="load($event)" *ngIf="!over && posts?.length > 0"></app-infinite-scroll>
+  <!-- Go to top -->
+  <app-goto-top slot="fixed" [content]="content"></app-goto-top>
+</ion-content>

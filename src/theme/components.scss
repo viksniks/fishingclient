@@ -1,0 +1,54 @@
+ion-back-button {
+  --padding-start: 5px !important;
+  --padding-end: 5px !important;
+}
+ion-toolbar {
+  &:not(.ion-border) {
+    --border-width: 0 !important;
+  }
+  &.toolbar-searchbar-common {
+    ion-buttons {
+      margin-top: 2px;
+    }
+    ion-searchbar {
+      height: 36px;
+      padding-bottom: 2px;
+      padding-right: 0;
+      .searchbar-input-container {
+        height: 28px;
+        .searchbar-input {
+          padding-inline-start: 35px !important;
+        }
+      }
+    }
+  }
+}
+ion-button {
+  &.button-block {
+    --border-radius: 50px;
+  }
+}
+ion-tab-bar {
+  &:not(.ion-border) {
+    --border: 0 !important;
+  }
+}
+ion-alert {
+  &.alert-buttons-no-border {
+    .alert-button {
+      border: 0;
+    }
+  }
+}
+ion-picker {
+  &:not(.ion-picker-border) {
+    .picker-toolbar {
+      border: 0;
+    }
+  }
+}
+ion-card {
+  --color: var(--ion-color-step-950);
+}
+
+

@@ -1,0 +1,298 @@
+{
+  "general": {
+    "config": {
+      "url": "https://horgaszverseny.vip",
+      "_terms": {
+        "slug": "app-terms",
+        "message": "<h6>Kérlek nézd át a <span class='primary'>felhasználási feltételeket és az adatvédelmi nyilatkozatot</span></h6>",
+        "read": "Elolvas",
+        "agree": "Elfogadom"
+      },
+      "_terms_login": "app-terms",
+      "title": "Figyelmeztetés",
+      "message": "A kapcsolat a szerverrel megszakadt. Kérlek próbáld később vagy keress bennünket a Facebook-on.",
+      "offline": "Offline",
+      "refreshData": "A frissítéshez húzd le a képernyőt",
+      "tokenInvalid": "Your login session has expired, please login again",
+      "try": "Próbáld újra"
+    },
+    "offlineText": "Offline mode. Click to Online",
+    "_pullingIcon": "arrow-down-circle-outline",
+    "_pullToRefresh": "",
+    "_refreshingSpinner": "lines",
+    "_refreshing": "",
+    "_infiniteSpinner": "lines",
+    "time": {
+      "_date_format": "y/MM/dd",
+      "now": "Most",
+      "minute": "Perccel ezelőtt'",
+      "minutes": " Perccel ezelőtt'",
+      "hour": " Órával ezelőtt",
+      "hours": " Órával ezelőtt",
+      "day": " Nappal ezelőtt",
+      "days": " Nappal ezelőtt"
+    },
+    "error": {
+      "request_timeout": "Request timeout",
+      "maintenance": "Rendszerkarbantartás"
+    },
+    "noData": "Nincs megjelníthető információ"
+  },
+  "menu": {
+    "notifications": "Értesítések",
+    "bookmarks": "Könyvjelzők",
+    "share": "Megosztás",
+    "rate": "Kérlek adj 5*-ot az appra",
+    "refresh": {
+      "title": "App frissítése",
+      "message": "Biztos hogy frissíteni akarod?",
+      "yes": "Igen",
+      "no": "Nem"
+    },
+    "settings": {
+      "title": "Beállítások",
+      "cancel": "Vissza"
+    },
+    "languages": {
+      "title": "Nyelv",
+      "cancel": "Vissza",
+      "save": "Kiválaszt"
+    },
+    "templates": {
+      "title": "Sablonok",
+      "message": "A lista frissítési sablonja újraindítja az alkalmazást",
+      "options": [
+        {
+          "text": "Lista",
+          "_value": "list"
+        },
+        {
+          "text": "Lista fordítva",
+          "_value": "reverse"
+        },
+        {
+          "text": "Kártya",
+          "_value": "card"
+        },
+        {
+          "text": "Oszlop",
+          "_value": "column"
+        }
+      ],
+      "cancel": "Vissza"
+    },
+    "cache": {
+      "title": "Gyorsítótár törlése",
+      "message": "Minden alkalmazás gyorsítótár véglegesen törlődik, és nem állítható helyre",
+      "no": "Vissza",
+      "yes": "Törlés",
+      "success": "A gyorsítótár sikeresen törölve",
+      "error": "Gyorsítótár törlési hiba"
+    }
+  },
+  "home": {
+    "update": {
+      "title": "Frissítés",
+      "message": "Új frissítés érhető el, szeretnéd telepíteni?",
+      "no": "Nem",
+      "yes": "Igen"
+    },
+    "exitApp": "Nyomj kétszer a vissza nyílra a kilépéshez",
+    "_deeplinks": {},
+    "login": "Login"
+  },
+  "login": {
+    "username": "Username",
+    "password": "Password",
+    "email": "Email",
+    "terms": "By continuing, you agree to <span class='primary'>Terms and Conditions</span>",
+    "login": {
+      "title": "Login",
+      "hint": "Already have an account? Login",
+      "wrong": "Login failed",
+      "facebook": "Login with Facebook",
+      "success": "Login successful"
+    },
+    "register": {
+      "title": "Register",
+      "hint": "New user? Register",
+      "default": "An error occurred, please try again later",
+      "users_can_not_register": "Registration is currently disabled",
+      "username_exists": "Username already exists",
+      "email_exists": "Email already exists",
+      "success": "Account registration successful"
+    },
+    "forgot": {
+      "title": "Forgot password",
+      "message": "Please input an username to retrieve your password",
+      "no": "Cancel",
+      "yes": "Send",
+      "success": "Please check Email for reset password",
+      "mail": "The system can't send mail, please contact the administrator",
+      "error": "Reset password failed"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "name": "Name",
+    "email": "Email",
+    "update": "Save",
+    "success": "Updated",
+    "logout": {
+      "title": "Logout",
+      "message": "Are you sure to logout?",
+      "no": "No",
+      "yes": "Yes"
+    },
+    "errors": {
+      "default": "An error occurred, please try again after",
+      "need_login": "You need to login",
+      "rest_cannot_edit": "You can't edit this account",
+      "rest_invalid_param": "The information is invalid",
+      "rest_user_invalid_email": "Email has been used",
+      "password_mismatch": "Password and Confirm password don't match"
+    },
+    "password": {
+      "title": "Change password",
+      "new_password": "New password",
+      "confirm_password": "Confirm password",
+      "no": "Cancel",
+      "yes": "Change",
+      "success": "Change password successful"
+    },
+    "keep": {
+      "title": "Logout another device",
+      "message": "Are you sure to logout all logins on another device?",
+      "no": "No",
+      "yes": "Yes",
+      "success": "Success",
+      "error": "Failure"
+    }
+  },
+  "favorites": {
+    "noData": {
+      "message": "Még egyik kategóriát sem kedvelted.",
+      "button": "Beállítás most!"
+    },
+    "chose": "Válassz kategóriát",
+    "save": "Mentés",
+    "saved": "Mentve",
+    "view": "Kedvenc",
+    "setting": "Beállítás"
+  },
+  "categories": {
+    "clear": {
+      "title": "Clear reorder",
+      "message": "Are you sure to clear Reorder categories?",
+      "no": "No",
+      "yes": "Yes"
+    }
+  },
+  "search": {
+    "search": "Keresés",
+    "history": "Előzmények",
+    "clear": {
+      "title": "Előzmények törlése",
+      "message": "Biztor törlöd az előzményeket?",
+      "no": "Nem",
+      "yes": "Igen"
+    }
+  },
+  "detail": {
+    "_date_format": "H:mm - dd/MM/y",
+    "_socialShare": [
+      {
+        "id": "facebook",
+        "icon": "logo-facebook",
+        "android": "com.facebook.katana",
+        "ios": "com.apple.social.facebook"
+      },
+      {
+        "id": "whatsapp",
+        "icon": "logo-whatsapp",
+        "android": "com.whatsapp",
+        "ios": "whatsapp"
+      },
+      {
+        "id": "twitter",
+        "icon": "logo-twitter",
+        "android": "com.twitter.android",
+        "ios": "com.apple.social.twitter"
+      }
+    ],
+    "no_previous": "Az előző cikk nem érhető el",
+    "no_next": "A következő cikk nem érhető el",
+    "bookmark": "Hozzáadva a könyvjelzőhöz",
+    "unbookmark": "Sikeresen eltávolítva",
+    "rewards": {
+      "title": "Rewards",
+      "message": "You need view rewards ads before view this content",
+      "no": "No",
+      "yes": "Very Happy"
+    },
+    "captcha": "Update captcha successful",
+    "canNotSubmit": "Can not connect to server. Please check your internet or try again later",
+    "spam": "Captcha is incorrect or has expired"
+  },
+  "comments": {
+    "title": "Comments",
+    "close": "Comments are closed for this item",
+    "noData": "Be the first to comment!",
+    "name": "Name",
+    "email": "Email",
+    "content": "Content",
+    "send": "Send",
+    "guest": "Guest",
+    "message": {
+      "default": "An error occurred, please try again later",
+      "hold": "Your comment is pending for moderation",
+      "comment_flood": "You comment too fast, please slow down",
+      "comment_duplicate": "You commented on this before",
+      "rest_comment_closed": "Comments are currently closed",
+      "rest_comment_login_required": "You need to login to comment",
+      "rest_comment_author_data_required": "You need to provide a valid name and email for comment"
+    },
+    "logout": {
+      "title": "Logout Facebook",
+      "message": "Are you sure to logout Facebook?",
+      "no": "No",
+      "yes": "Yes"
+    },
+    "reply": "Reply",
+    "view": "View"
+  },
+  "bookmark": {
+    "search": "Könyvjelzők keresése",
+    "delete": "Töröl",
+    "noData": {
+      "message1": "Úgy tűnik, nem mentettél bejegyzéseket",
+      "message2": "Könyvjelzők offline olvasásra!",
+      "button": "Főoldal"
+    },
+    "clear": {
+      "title": "Könyvjelzők törlése",
+      "message": "Biztosan törli az összes könyvjelzőt?",
+      "no": "Nem",
+      "yes": "Igen"
+    }
+  },
+  "notification": {
+    "title": "Értesítések",
+    "_date_format": "H:mm - dd/MM/y",
+    "noData": "Még nincsenek kattintott értesítések!",
+    "launch": "Open website",
+    "deeplinks": "Megnyit",
+    "delete": {
+      "title": "Értesítés törlése",
+      "message": "Biztosan törli?",
+      "no": "Nem",
+      "yes": "Igen"
+    },
+    "clear": {
+      "title": "Értesítések törlése",
+      "message": "Biztosan törli az összes értesítést?",
+      "no": "Nem",
+      "yes": "Igen"
+    }
+  }
+}
